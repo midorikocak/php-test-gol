@@ -1,6 +1,6 @@
 <?php
 
-use MidoriKocak\Life;
+use MidoriKocak\GameOfLife\Life;
 
 class LifeTest extends \PHPUnit_Framework_TestCase
 {

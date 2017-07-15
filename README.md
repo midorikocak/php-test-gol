@@ -1,40 +1,87 @@
-# PHP Test
+# game-of-life
 
-Consider a representation of a _world_ as an `n` by `n` matrix. Each element in the matrix may contain 1 organism.
-Each organism lives, dies and reproduces according to the following set of rules:
+[![Latest Version on Packagist][ico-version]][link-packagist]
+[![Software License][ico-license]](LICENSE.md)
+[![Build Status][ico-travis]][link-travis]
+[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
+[![Quality Score][ico-code-quality]][link-code-quality]
+[![Total Downloads][ico-downloads]][link-downloads]
 
-* If there are two or three organisms of the same type living in the elements surrounding an organism of the same,
-type then it may survive.
+This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
+PSRs you support to avoid any confusion with users and contributors.
 
-* If there are less than two organisms of one type surrounding one of the same type then it will die due to isolation.
+## Structure
 
-* If there are four or more organisms of one type surrounding one of the same type then it will die due to overcrowding.
+If any of the following are applicable to your project, then the directory structure should follow industry best practises by being named the following.
 
-* If there are exactly three organisms of one type surrounding one element, they may give birth into that cell.
-The new organism is the same type as its parents. If this condition is true for more then one
-species on the same element then species type for the new element is chosen randomly.
-
-* If two organisms occupy one element, one of them must die (chosen randomly) (only to resolve initial conflicts).
-
-The _world_ and initial distribution of organisms within it is defined by an XML file of the following format:
-
-```xml
-<?xml version="1.0" encoding="UTF­8"?>
-<life>
-    <world>
-        <cells>n</cells> <!-- Dimension of the square "world" -->
-        <species>m</species> <!-- Number of distinct species -->
-        <iterations>4000000</iterations> <!-- Number of iterations to be calculated -->
-    </world>
-    <organisms>
-        <organism>
-            <x_pos>x</x_pos> <!-- x position -->
-            <y_pos>y</y_pos> <!-- y position -->
-            <species>t</species> <!-- Species type -->
-        </organism>
-    </organisms>
-</life>
+```
+bin/        
+config/
+src/
+tests/
+vendor/
 ```
 
-After iterations, the state of the _world_ is to be saved in an XML file, `out.xml`,
-of the same format as the initial definition file.
+
+## Install
+
+Via Composer
+
+``` bash
+$ composer require midorikocak/game-of-life
+```
+
+## Usage
+
+Using a random array generated using size:
+``` sh
+$ php life.php -r -s 40 -i 1024 -sp 1 -v
+```
+
+Using a file:
+
+``` sh
+$ php life.php -v -f data/glider_gun.xml
+```
+
+## Change log
+
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+
+## Testing
+
+``` bash
+$ composer test
+```
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details.
+
+## Security
+
+If you discover any security related issues, please email midori@mynameismidori.com instead of using the issue tracker.
+
+## Credits
+
+- [Midori Kocak][link-author]
+- [All Contributors][link-contributors]
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+[ico-version]: https://img.shields.io/packagist/v/midorikocak/game-of-life.svg?style=flat-square
+[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/midorikocak/game-of-life/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/midorikocak/game-of-life.svg?style=flat-square
+[ico-code-quality]: https://img.shields.io/scrutinizer/g/midorikocak/game-of-life.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/midorikocak/game-of-life.svg?style=flat-square
+
+[link-packagist]: https://packagist.org/packages/midorikocak/game-of-life
+[link-travis]: https://travis-ci.org/midorikocak/game-of-life
+[link-scrutinizer]: https://scrutinizer-ci.com/g/midorikocak/game-of-life/code-structure
+[link-code-quality]: https://scrutinizer-ci.com/g/midorikocak/game-of-life
+[link-downloads]: https://packagist.org/packages/midorikocak/game-of-life
+[link-author]: https://github.com/midorikocak
+[link-contributors]: ../../contributors

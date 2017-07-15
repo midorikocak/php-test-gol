@@ -1,11 +1,11 @@
 <?php
 
-use MidoriKocak\GameOfLife;
+use MidoriKocak\GameOfLife\World;
 
 class WorldTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var GameOfLife
+     * @var \MidoriKocak\GameOfLife\GameOfLife
      */
     private $life;
 

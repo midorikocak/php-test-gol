@@ -1,25 +1,50 @@
 {
     "name": "midorikocak/game-of-life",
-    "description": "A simple standalone OOP, gameoflife implementation with PHP",
-    "type": "project",
-    "require": {
-        "phpunit/phpunit": "^5.2"
-    },
+    "type": "library",
+    "description": "A simple standalone OOP, Connway's gameoflife implementation with PHP",
+    "keywords": [
+        "midorikocak",
+        "game-of-life"
+    ],
+    "homepage": "https://github.com/midorikocak/game-of-life",
     "license": "MIT",
     "authors": [
         {
             "name": "Midori Kocak",
-            "email": "mtkocak@gmail.com"
+            "email": "midori@mynameismidori.com",
+            "homepage": "https://www.mynameismidori.com",
+            "role": "Developer"
         }
     ],
-    "minimum-stability": "dev",
+    "require": {
+        "php": "~7.0",
+        "league/climate": "^3.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "~6.0",
+        "squizlabs/php_codesniffer": "^2.3"
+    },
     "autoload": {
         "psr-4": {
-            "MidoriKocak\\": "src/"
-        },
-        "psr-0": {
-            "MidoriKocakTest\\": "tests/"
+            "MidoriKocak\\GameOfLife\\": "src"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MidoriKocak\\GameOfLife\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",
+        "fix-style": "phpcbf -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
     }
-
 }

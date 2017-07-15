@@ -1,6 +1,6 @@
 <?php
 
-namespace MidoriKocak;
+namespace MidoriKocak\GameOfLife;
 
 
 class GameOfLife
@@ -25,13 +25,30 @@ class GameOfLife
      */
     private $organisms;
 
+    /**
+     * @var int
+     */
     private $size;
+
+    /**
+     * @var int
+     */
     private $iterations;
+
+    /**
+     * @var int
+     */
     private $species;
 
-    public function __construct(string $filename)
+    private $outputFilename = "out.xml";
+
+    public function __construct(string $filename, string $outputFilename = null)
     {
         $this->loadXML($filename);
+
+        if($outputFilename != null){
+            $this->outputFilename = $outputFilename;
+        }
 
         $world = $this->xml->getElementsByTagName('world')->item(0);
         $this->size = $world->getElementsByTagName('cells')->item(0)->nodeValue;
@@ -65,10 +82,17 @@ class GameOfLife
 
     public function start($verbose = true)
     {
-        $this->life->start($verbose);
-        if ($this->life->isEnded()) {
-            self::createXMLfromCells("data/out.xml", $this->organisms->getCells(), $this->species, $this->iterations);
+        if ($this->organisms == null || $this->species == null || $this->iterations == null) {
+            throw new \Exception('Not ready yet');
         }
+
+        $this->life->start($verbose);
+
+        if ($this->life->isEnded()) {
+            self::createXMLfromCells("data/".$this->outputFilename, $this->organisms->getCells(), $this->species, $this->iterations);
+        }
+
+        return true;
     }
 
     public function generateOutput()

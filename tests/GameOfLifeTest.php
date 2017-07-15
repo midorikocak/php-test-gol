@@ -1,6 +1,6 @@
 <?php
 
-use MidoriKocak\GameOfLife;
+use MidoriKocak\GameOfLife\GameOfLife;
 
 class GameOfLifeTest extends \PHPUnit_Framework_TestCase
 {
@@ -59,5 +59,24 @@ class GameOfLifeTest extends \PHPUnit_Framework_TestCase
         ];
     }
 
+    public function testStart()
+    {
+
+    }
+
+    public function testGenerateOutput()
+    {
+
+    }
+
+    public function testCreateSquareMatrixWithZeors()
+    {
+
+    }
+
+    public function testCreateRandomMatrix()
+    {
+
+    }
 
 }

@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: midorikocak
- * Date: 15/07/2017
- * Time: 16:44
- */
 
-namespace MidoriKocak;
+namespace MidoriKocak\GameOfLife;
 
 
 class World
@@ -80,6 +74,4 @@ class World
     {
         $this->species = $species;
     }
-
-
 }

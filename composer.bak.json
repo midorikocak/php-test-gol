@@ -1,0 +1,25 @@
+{
+    "name": "midorikocak/game-of-life",
+    "description": "A simple standalone OOP, gameoflife implementation with PHP",
+    "type": "project",
+    "require": {
+        "phpunit/phpunit": "^5.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Midori Kocak",
+            "email": "mtkocak@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "MidoriKocak\\": "src/"
+        },
+        "psr-0": {
+            "MidoriKocakTest\\": "tests/"
+        }
+    }
+
+}

@@ -1,6 +1,6 @@
 <?php
 
-namespace MidoriKocak;
+namespace MidoriKocak\GameOfLife;
 
 
 class Life

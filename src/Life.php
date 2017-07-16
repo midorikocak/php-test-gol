@@ -2,19 +2,49 @@
 
 namespace MidoriKocak\GameOfLife;
 
-
+/**
+ * Class Life
+ * @package MidoriKocak\GameOfLife
+ */
 class Life
 {
+    /**
+     * World object acts as an info card.
+     *
+     * @var World
+     */
     private $world;
+
+    /**
+     * DAO of organisms
+     *
+     * @var Organisms
+     */
     private $organisms;
+
+    /**
+     * Keeps the number of current generation.
+     *
+     * @var int
+     */
     private $generations = 0;
 
+    /**
+     * Life constructor.
+     * @param World $world
+     * @param Organisms $organisms
+     */
     public function __construct(World $world, Organisms $organisms)
     {
         $this->world = $world;
         $this->organisms = $organisms;
     }
 
+    /**
+     * Initializes the game
+     *
+     * @param bool $verbose
+     */
     public function start($verbose = true)
     {
         if ($this->generations == 0) {
@@ -28,11 +58,21 @@ class Life
         }
     }
 
+    /**
+     * Shows if the game reached max iteration
+     *
+     * @return bool
+     */
     public function isEnded()
     {
         return $this->generations == $this->world->getIterations();
     }
 
+    /**
+     * Helper method to print organisms to CLI.
+     *
+     * @param $matrix
+     */
     private static function printMatrixCli($matrix)
     {
         system('clear');

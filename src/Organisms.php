@@ -2,10 +2,16 @@
 
 namespace MidoriKocak\GameOfLife;
 
-
+/**
+ * Class Organisms
+ *
+ * @package MidoriKocak\GameOfLife
+ */
 class Organisms
 {
     /**
+     * Multidimensional array of organisms
+     *
      * @var int[][]
      */
     private $cells;
@@ -19,6 +25,10 @@ class Organisms
         $this->cells = $cells;
     }
 
+    /**
+     * Runs the game.
+     * Checks each cell for the next iteration.
+     */
     public function iterate()
     {
         $next = $this->cells;
@@ -32,11 +42,23 @@ class Organisms
         $this->cells = $next;
     }
 
+    /**
+     * Returns the array of cells
+     *
+     * @return array|\int[][]
+     */
     public function getCells()
     {
         return $this->cells;
     }
 
+    /**
+     * Helper function to get neighbor count of matrix element
+     *
+     * @param $i
+     * @param $j
+     * @return array
+     */
     private function getNeighborCount($i, $j)
     {
         $neighbors = [];
@@ -55,6 +77,13 @@ class Organisms
         return $neighbors;
     }
 
+    /**
+     * Check the matrix cell if it will survive, die or reproduce.
+     *
+     * @param $i
+     * @param $j
+     * @return int|mixed
+     */
     private function checkCell($i, $j)
     {
         $neighbors = $this->getNeighborCount($i, $j);
@@ -83,6 +112,14 @@ class Organisms
         return 0;
     }
 
+    /**
+     * Helper method that returns indexes of neighbors of a Matrix element.
+     *
+     * @param $matrix
+     * @param $i
+     * @param $j
+     * @return array
+     */
     private static function getNeighborIndexes($matrix, $i, $j)
     {
 
@@ -99,6 +136,5 @@ class Organisms
 
         return $indexes;
     }
-
 
 }

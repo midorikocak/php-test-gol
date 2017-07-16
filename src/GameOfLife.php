@@ -2,7 +2,14 @@
 
 namespace MidoriKocak\GameOfLife;
 
-
+/**
+ * Class GameOfLife
+ *
+ * A simple standalone OOP, Connway's gameoflife implementation with PHP.
+ * API of Program
+ *
+ * @package MidoriKocak\GameOfLife
+ */
 class GameOfLife
 {
     /**
@@ -13,7 +20,7 @@ class GameOfLife
     /**
      * @var Life
      */
-    private $life;
+    public $life;
 
     /**
      * @var World
@@ -40,13 +47,22 @@ class GameOfLife
      */
     private $species;
 
+    /**
+     * @var string
+     */
     private $outputFilename = "out.xml";
 
+    /**
+     * GameOfLife constructor.
+     *
+     * @param string $filename
+     * @param string|null $outputFilename
+     */
     public function __construct(string $filename, string $outputFilename = null)
     {
         $this->loadXML($filename);
 
-        if($outputFilename != null){
+        if ($outputFilename != null) {
             $this->outputFilename = $outputFilename;
         }
 
@@ -60,6 +76,13 @@ class GameOfLife
         $this->createLife();
     }
 
+    /**
+     * Loads the inital XML file. Always runs.
+     *
+     * @param $filename
+     * @return bool
+     * @throws \Exception
+     */
     private function loadXML($filename)
     {
         if (!file_exists($filename)) {
@@ -80,6 +103,13 @@ class GameOfLife
         return true;
     }
 
+    /**
+     * Starts the game
+     *
+     * @param bool $verbose
+     * @return bool
+     * @throws \Exception
+     */
     public function start($verbose = true)
     {
         if ($this->organisms == null || $this->species == null || $this->iterations == null) {
@@ -88,31 +118,22 @@ class GameOfLife
 
         $this->life->start($verbose);
 
+        if (!$this->life->isEnded()) {
+            throw new \Exception('You cannot generate output while life continues');
+        }
+
         if ($this->life->isEnded()) {
-            self::createXMLfromCells("data/".$this->outputFilename, $this->organisms->getCells(), $this->species, $this->iterations);
+            self::createXMLfromCells("data/" . $this->outputFilename, $this->organisms->getCells(), $this->species, $this->iterations);
         }
 
         return true;
     }
 
-    public function generateOutput()
-    {
-        if ($this->organisms == null || $this->world == null || $this->life !== null) {
-            throw new \Exception('Not ready yet');
-        }
-
-        if (!$this->life->isEnded()) {
-            throw new \Exception('You cannot generate output while life continues');
-        }
-
-        self::createXMLfromCells(
-            "out.xml",
-            $this->organisms->getCells(),
-            $this->world->getSpecies(),
-            $this->world->getIterations()
-        );
-    }
-
+    /**
+     * Creates the life of game.
+     *
+     * @throws \Exception
+     */
     private function createLife()
     {
         if ($this->organisms !== null && $this->world !== null) {
@@ -122,6 +143,11 @@ class GameOfLife
         }
     }
 
+    /**
+     * Creates the World of game.
+     *
+     * @throws \Exception
+     */
     private function createWorld()
     {
         if ($this->size == null || $this->species == null | $this->iterations == null) {
@@ -135,6 +161,11 @@ class GameOfLife
         $this->world = new World($this->size, $this->species, $this->iterations);
     }
 
+    /**
+     * Creates organisms of game.
+     *
+     * @throws \Exception
+     */
     private function createOrganisms()
     {
         if ($this->size == null || $this->species == null) {
@@ -144,8 +175,26 @@ class GameOfLife
         if ($this->size < 0 || $this->species < 0) {
             throw new \InvalidArgumentException("Organisms arguments should be positive.");
         }
-        $cellsArray = self::createSquareMatrixWithZeors($this->size);
-        $organisms = $this->xml->getElementsByTagName('organism');
+
+        $cellsArray = self::createCellsFromXML($this->xml);
+        $this->checkCells($cellsArray, $this->species);
+
+        $this->organisms = new Organisms($cellsArray);
+    }
+
+    /**
+     * Helper function to generate array of cells from XML DomDocument.
+     *
+     * @param \DOMDocument $xml
+     * @return array
+     */
+    public static function createCellsFromXML(\DOMDocument $xml)
+    {
+        $world = $xml->getElementsByTagName('world')->item(0);
+        $size = $world->getElementsByTagName('cells')->item(0)->nodeValue;
+
+        $cellsArray = self::createSquareMatrixWithZeors($size);
+        $organisms = $xml->getElementsByTagName('organism');
 
         /**
          * @var \DOMElement $organism
@@ -158,11 +207,17 @@ class GameOfLife
             $cellsArray[$i][$j] = $value;
         }
 
-        $this->checkCells($cellsArray, $this->species);
-
-        $this->organisms = new Organisms($cellsArray);
+        return $cellsArray;
     }
 
+    /**
+     * Creates XML file from matrix
+     *
+     * @param $filename
+     * @param array $matrix
+     * @param int $species
+     * @param int $iterations
+     */
     public static function createXMLfromCells($filename, array $matrix, int $species, int $iterations)
     {
         $domtree = new \DOMDocument('1.0', 'UTF-8');
@@ -200,6 +255,8 @@ class GameOfLife
     }
 
     /**
+     * Initializes a multidimensional array of zeros
+     *
      * @param int $size
      * @return array
      */
@@ -211,6 +268,8 @@ class GameOfLife
     }
 
     /**
+     * Creates a random array with integers up to $max
+     *
      * @param int $n
      * @param int $m
      * @param int $max
@@ -231,6 +290,8 @@ class GameOfLife
     }
 
     /**
+     * Checks if array cells are valid.
+     *
      * @param int[][] $cells
      * @param int $species
      */

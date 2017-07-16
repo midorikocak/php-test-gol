@@ -93,7 +93,6 @@ try {
     if ($climate->arguments->defined('filename')) {
         $filename = $climate->arguments->get('filename');
     } elseif ($climate->arguments->defined('random')) {
-
         $exit = false;
         if (!$climate->arguments->defined('size')) {
             $climate->to('error')->red('Needs world --size or -s as a parameter');

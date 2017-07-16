@@ -2,24 +2,40 @@
 
 namespace MidoriKocak\GameOfLife;
 
-
+/**
+ * Class World
+ * @package MidoriKocak\GameOfLife
+ */
 class World
 {
     /**
+     * Size of the square matrix.
+     *
      * @var int
      */
     private $cells;
 
     /**
+     * Number of max iterations.
+     *
      * @var int
      */
     private $iterations;
 
     /**
+     * Number of max species.
+     *
      * @var int
      */
     private $species;
 
+    /**
+     * World constructor.
+     *
+     * @param int $cells
+     * @param int $species
+     * @param int $iterations
+     */
     public function __construct(int $cells, int $species, int $iterations)
     {
         $this->setCells($cells);
@@ -28,6 +44,8 @@ class World
     }
 
     /**
+     * Returns the size of the square matrix.
+     *
      * @return int
      */
     public function getCells(): int
@@ -36,6 +54,8 @@ class World
     }
 
     /**
+     * Set's the size of the square matrix.
+     *
      * @param int $cells
      */
     public function setCells(int $cells)
@@ -44,6 +64,8 @@ class World
     }
 
     /**
+     * Returns the number of max iterations.
+     *
      * @return int
      */
     public function getIterations(): int
@@ -52,6 +74,8 @@ class World
     }
 
     /**
+     * Sets the number of max iterations.
+     *
      * @param int $iterations
      */
     public function setIterations(int $iterations)
@@ -60,6 +84,8 @@ class World
     }
 
     /**
+     * Returns the number of max species.
+     *
      * @return int
      */
     public function getSpecies(): int
@@ -68,6 +94,8 @@ class World
     }
 
     /**
+     * Sets the number of max species.
+     *
      * @param int $species
      */
     public function setSpecies(int $species)

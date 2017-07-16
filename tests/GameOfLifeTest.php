@@ -9,7 +9,7 @@ class GameOfLifeTest extends \PHPUnit_Framework_TestCase
     private $gameOflife;
 
     /**
-     * @var
+     * @var int[][]
      */
     private $cellsArray;
 

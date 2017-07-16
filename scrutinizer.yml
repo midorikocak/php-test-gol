@@ -5,6 +5,11 @@ build:
 before_commands:
     - "composer install --prefer-source"
 
+checks:
+    php:
+        code_rating: true
+        duplication: false
+        
 tools:
     external_code_coverage:
         enabled: true

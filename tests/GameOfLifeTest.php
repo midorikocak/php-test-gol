@@ -1,5 +1,5 @@
 <?php
-
+require "../vendor/autoload.php";
 use MidoriKocak\GameOfLife\GameOfLife;
 
 class GameOfLifeTest extends \PHPUnit_Framework_TestCase

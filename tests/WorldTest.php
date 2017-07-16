@@ -1,5 +1,6 @@
 <?php
 
+require "../vendor/autoload.php";
 use MidoriKocak\GameOfLife\World;
 
 class WorldTest extends \PHPUnit_Framework_TestCase

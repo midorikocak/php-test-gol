@@ -1,5 +1,5 @@
 <?php
-
+require "../vendor/autoload.php";
 use MidoriKocak\GameOfLife\Organisms;
 
 class OrganismsTest extends \PHPUnit_Framework_TestCase

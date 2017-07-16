@@ -1,54 +1,132 @@
----
+build:
+    environment:
+        php: '7'
+
 before_commands:
-    - sudo composer self-update
-    - composer install --dev
-filter:
-    paths: [src/*]
-checks:
-    php:
-        code_rating: true
-        remove_extra_empty_lines: true
-        remove_php_closing_tag: true
-        remove_trailing_whitespace: true
-        fix_use_statements:
-            remove_unused: true
-            preserve_multiple: false
-            preserve_blanklines: true
-            order_alphabetically: true
-        fix_php_opening_tag: true
-        fix_linefeed: true
-        fix_line_ending: true
-        fix_identation_4spaces: true
-        fix_doc_comments: true
+    - "composer install --prefer-source"
+
 tools:
     external_code_coverage:
-        timeout: 600
-        runs: 3
-    php_code_sniffer:
-        config:
-            standard: PSR2
-        filter:
-            paths: ['src']
-    php_loc:
         enabled: true
-        excluded_dirs: [vendor, spec, stubs]
+        timeout: 300
+        filter:
+            excluded_paths:
+                - 'docs/*'
+                - 'examples/*'
+                - 'extras/*'
+                - 'test/*'
+                - 'vendor/*'
+
+    php_code_coverage:
+        enabled:              false
+        filter:
+            excluded_paths:
+                - 'docs/*'
+                - 'examples/*'
+                - 'extras/*'
+                - 'test/*'
+                - 'vendor/*'
+
+    php_code_sniffer:
+        enabled:              true
+        config:
+            standard:         PSR2
+            sniffs:
+                generic:
+                    files:
+                        one_class_per_file_sniff: false
+        filter:
+            excluded_paths:
+                - 'docs/*'
+                - 'examples/*'
+                - 'extras/*'
+                - 'test/*'
+                - 'vendor/*'
+
+    # Copy/Paste Detector
     php_cpd:
-        enabled: true
-        excluded_dirs: [vendor, spec, stubs]
+        enabled:              true
+        excluded_dirs:
+            - docs
+            - examples
+            - extras
+            - test
+            - vendor
+
+    # PHP CS Fixer (http://http://cs.sensiolabs.org/).
     php_cs_fixer:
-        enabled: true
+        enabled:              true
         config:
-            level: all
+            level:            psr2
         filter:
-            paths: [src/*, tests/*]
-    php_code_sniffer:
-        enabled: true
+            excluded_paths:
+                - 'docs/*'
+                - 'examples/*'
+                - 'extras/*'
+                - 'test/*'
+                - 'vendor/*'
+
+    # Analyzes the size and structure of a PHP project.
+    php_loc:
+        enabled:              true
+        excluded_dirs:
+            - docs
+            - examples
+            - extras
+            - test
+            - vendor
+
+    # PHP Mess Detector (http://phpmd.org).
+    php_mess_detector:
+        enabled:              true
         config:
-            standard: PSR2
+            rulesets:
+                - codesize
+                - unusedcode
+                - naming
+                - design
+            naming_rules:
+                short_variable: { minimum: 2 }
         filter:
-            paths: [src/*, tests/*]
-    php_mess_detector: false
+            excluded_paths:
+                - 'docs/*'
+                - 'examples/*'
+                - 'extras/*'
+                - 'test/*'
+                - 'vendor/*'
+
+    # Analyzes the size and structure of a PHP project.
+    php_pdepend:
+        enabled:              true
+        excluded_dirs:
+            - docs
+            - examples
+            - extras
+            - test
+            - vendor
+
+    # Runs Scrutinizer's PHP Analyzer Tool
+    # https://scrutinizer-ci.com/docs/tools/php/php-analyzer/config_reference
     php_analyzer:
-        enabled: true
+        enabled:              true
+        config:
+            checkstyle:
+                enabled: true
+                naming:
+                    enabled: true
+                    property_name: ^[_a-zA-Z][a-zA-Z0-9_]*$ #Allow underscores & caps
+                    method_name: ^(?:[_a-zA-Z]|__)[a-zA-Z0-9_]*$ #Allow underscores & caps
+                    parameter_name: ^[a-z][a-zA-Z0-9_]*$ # Allow underscores
+                    local_variable: ^[a-zA-Z][a-zA-Z0-9_]*$ #Allow underscores & caps
+                    exception_name: ^[a-zA-Z][a-zA-Z0-9]*Exception$
+                    isser_method_name: ^(?:[_a-zA-Z]|__)[a-zA-Z0-9]*$ #Allow underscores & caps
         filter:
-            paths: [src/*, tests/*]
+            excluded_paths:
+                - 'docs/*'
+                - 'examples/*'
+                - 'extras/*'
+                - 'test/*'
+                - 'vendor/*'
+
+    # Security Advisory Checker
+    sensiolabs_security_checker: true

@@ -62,7 +62,7 @@ class GameOfLife
     {
         $this->loadXML($filename);
 
-        if ($outputFilename != null) {
+        if ($outputFilename !== null) {
             $this->outputFilename = $outputFilename;
         }
 
@@ -238,9 +238,11 @@ class GameOfLife
 
 
         $xmlRoot->appendChild($organisms);
+        $rows = sizeof($matrix);
+        $columns = sizeof($matrix[0]);
 
-        for ($i = 0; $i < sizeof($matrix); $i++) {
-            for ($j = 0; $j < sizeof($matrix[0]); $j++) {
+        for ($i = 0; $i < $rows; $i++) {
+            for ($j = 0; $j < $columns; $j++) {
                 if ($matrix[$i][$j] !== 0) {
                     $organism = $domtree->createElement('organism');
                     $organism->appendChild($domtree->createElement('x_pos', $j));
@@ -270,18 +272,18 @@ class GameOfLife
     /**
      * Creates a random array with integers up to $max
      *
-     * @param int $n
-     * @param int $m
+     * @param int $rows
+     * @param int $columns
      * @param int $max
      *
      * @return array
      */
-    public static function createRandomMatrix(int $n, int $m, int $max)
+    public static function createRandomMatrix(int $rows, int $columns, int $max)
     {
-        $matrix = array_fill(0, $n, array_fill(0, $m, 0));
+        $matrix = array_fill(0, $rows, array_fill(0, $columns, 0));
 
-        for ($i = 0; $i < $n; $i++) {
-            for ($j = 0; $j < $m; $j++) {
+        for ($i = 0; $i < $rows; $i++) {
+            for ($j = 0; $j < $columns; $j++) {
                 $matrix[$i][$j] = rand(0, $max);
             }
         }
@@ -300,8 +302,12 @@ class GameOfLife
         if (empty($cells) || empty($cells[0])) {
             throw new \InvalidArgumentException("Cells can't be empty");
         }
-        for ($i = 0; $i < sizeof($cells); $i++) {
-            for ($j = 0; $j < sizeof($cells[0]); $j++) {
+
+        $rows = sizeof($cells);
+        $columns = sizeof($cells[0]);
+
+        for ($i = 0; $i < $rows; $i++) {
+            for ($j = 0; $j < $columns; $j++) {
                 if ($cells[$i][$j] < 0 || $cells[$i][$j] > ($species + 1)) {
                     throw new \InvalidArgumentException("Cells can't be empty");
                 }

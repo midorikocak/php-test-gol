@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1500244672">
-  <project timestamp="1500244672">
+<coverage generated="1500247150">
+  <project timestamp="1500247150">
     <package name="MidoriKocak\GameOfLife">
       <file name="/Users/midorikocak/src/php-test-gol/src/GameOfLife.php">
         <class name="GameOfLife" namespace="MidoriKocak\GameOfLife" fullPackage="MidoriKocak" package="MidoriKocak">
-          <metrics complexity="43" methods="11" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="91" coveredstatements="79" elements="102" coveredelements="83"/>
+          <metrics complexity="43" methods="11" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="95" coveredstatements="83" elements="106" coveredelements="87"/>
         </class>
         <line num="61" type="method" name="__construct" visibility="public" complexity="2" crap="2.00" count="5"/>
         <line num="63" type="stmt" count="5"/>
@@ -81,38 +81,42 @@
         <line num="235" type="stmt" count="2"/>
         <line num="237" type="stmt" count="2"/>
         <line num="240" type="stmt" count="2"/>
+        <line num="241" type="stmt" count="2"/>
         <line num="242" type="stmt" count="2"/>
-        <line num="243" type="stmt" count="2"/>
         <line num="244" type="stmt" count="2"/>
         <line num="245" type="stmt" count="2"/>
         <line num="246" type="stmt" count="2"/>
         <line num="247" type="stmt" count="2"/>
         <line num="248" type="stmt" count="2"/>
         <line num="249" type="stmt" count="2"/>
-        <line num="254" type="stmt" count="2"/>
-        <line num="255" type="stmt" count="2"/>
-        <line num="263" type="method" name="createSquareMatrixWithZeors" visibility="public" complexity="1" crap="1" count="5"/>
-        <line num="266" type="stmt" count="5"/>
-        <line num="267" type="stmt" count="5"/>
-        <line num="279" type="method" name="createRandomMatrix" visibility="public" complexity="3" crap="3" count="1"/>
-        <line num="281" type="stmt" count="1"/>
+        <line num="250" type="stmt" count="2"/>
+        <line num="251" type="stmt" count="2"/>
+        <line num="256" type="stmt" count="2"/>
+        <line num="257" type="stmt" count="2"/>
+        <line num="265" type="method" name="createSquareMatrixWithZeors" visibility="public" complexity="1" crap="1" count="5"/>
+        <line num="268" type="stmt" count="5"/>
+        <line num="269" type="stmt" count="5"/>
+        <line num="281" type="method" name="createRandomMatrix" visibility="public" complexity="3" crap="3" count="1"/>
         <line num="283" type="stmt" count="1"/>
-        <line num="284" type="stmt" count="1"/>
         <line num="285" type="stmt" count="1"/>
-        <line num="289" type="stmt" count="1"/>
-        <line num="298" type="method" name="checkCells" visibility="private" complexity="7" crap="8.14" count="5"/>
-        <line num="300" type="stmt" count="5"/>
-        <line num="301" type="stmt" count="0"/>
-        <line num="303" type="stmt" count="5"/>
-        <line num="304" type="stmt" count="5"/>
-        <line num="305" type="stmt" count="5"/>
-        <line num="306" type="stmt" count="0"/>
+        <line num="286" type="stmt" count="1"/>
+        <line num="287" type="stmt" count="1"/>
+        <line num="291" type="stmt" count="1"/>
+        <line num="300" type="method" name="checkCells" visibility="private" complexity="7" crap="7.54" count="5"/>
+        <line num="302" type="stmt" count="5"/>
+        <line num="303" type="stmt" count="0"/>
+        <line num="306" type="stmt" count="5"/>
+        <line num="307" type="stmt" count="5"/>
+        <line num="309" type="stmt" count="5"/>
         <line num="310" type="stmt" count="5"/>
-        <metrics loc="311" ncloc="206" classes="1" methods="11" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="91" coveredstatements="79" elements="102" coveredelements="83"/>
+        <line num="311" type="stmt" count="5"/>
+        <line num="312" type="stmt" count="0"/>
+        <line num="316" type="stmt" count="5"/>
+        <metrics loc="317" ncloc="212" classes="1" methods="11" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="95" coveredstatements="83" elements="106" coveredelements="87"/>
       </file>
       <file name="/Users/midorikocak/src/php-test-gol/src/Life.php">
         <class name="Life" namespace="MidoriKocak\GameOfLife" fullPackage="MidoriKocak" package="MidoriKocak">
-          <metrics complexity="10" methods="4" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="22" coveredstatements="10" elements="26" coveredelements="12"/>
+          <metrics complexity="10" methods="4" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="23" coveredstatements="10" elements="27" coveredelements="12"/>
         </class>
         <line num="37" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="7"/>
         <line num="39" type="stmt" count="7"/>
@@ -137,68 +141,66 @@
         <line num="100" type="stmt" count="0"/>
         <line num="101" type="stmt" count="0"/>
         <line num="102" type="stmt" count="0"/>
-        <line num="104" type="stmt" count="0"/>
-        <line num="108" type="stmt" count="0"/>
+        <line num="103" type="stmt" count="0"/>
+        <line num="105" type="stmt" count="0"/>
         <line num="109" type="stmt" count="0"/>
-        <metrics loc="110" ncloc="71" classes="1" methods="4" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="22" coveredstatements="10" elements="26" coveredelements="12"/>
+        <line num="110" type="stmt" count="0"/>
+        <metrics loc="111" ncloc="72" classes="1" methods="4" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="23" coveredstatements="10" elements="27" coveredelements="12"/>
       </file>
       <file name="/Users/midorikocak/src/php-test-gol/src/Organisms.php">
         <class name="Organisms" namespace="MidoriKocak\GameOfLife" fullPackage="MidoriKocak" package="MidoriKocak">
-          <metrics complexity="30" methods="6" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="46" coveredstatements="45" elements="52" coveredelements="50"/>
+          <metrics complexity="28" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="43" coveredstatements="43" elements="49" coveredelements="49"/>
         </class>
         <line num="23" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="9"/>
         <line num="25" type="stmt" count="9"/>
         <line num="26" type="stmt" count="9"/>
         <line num="32" type="method" name="iterate" visibility="public" complexity="3" crap="3" count="4"/>
         <line num="34" type="stmt" count="4"/>
+        <line num="35" type="stmt" count="4"/>
         <line num="36" type="stmt" count="4"/>
         <line num="37" type="stmt" count="4"/>
         <line num="38" type="stmt" count="4"/>
-        <line num="42" type="stmt" count="4"/>
+        <line num="39" type="stmt" count="4"/>
         <line num="43" type="stmt" count="4"/>
-        <line num="50" type="method" name="getCells" visibility="public" complexity="1" crap="1" count="3"/>
-        <line num="52" type="stmt" count="3"/>
-        <line num="62" type="method" name="getNeighborCount" visibility="private" complexity="3" crap="3" count="4"/>
-        <line num="64" type="stmt" count="4"/>
+        <line num="44" type="stmt" count="4"/>
+        <line num="51" type="method" name="getCells" visibility="public" complexity="1" crap="1" count="3"/>
+        <line num="53" type="stmt" count="3"/>
+        <line num="63" type="method" name="getNeighborCount" visibility="private" complexity="3" crap="3" count="4"/>
         <line num="65" type="stmt" count="4"/>
         <line num="66" type="stmt" count="4"/>
         <line num="67" type="stmt" count="4"/>
         <line num="68" type="stmt" count="4"/>
         <line num="69" type="stmt" count="4"/>
         <line num="70" type="stmt" count="4"/>
-        <line num="72" type="stmt" count="4"/>
+        <line num="71" type="stmt" count="4"/>
         <line num="73" type="stmt" count="4"/>
         <line num="74" type="stmt" count="4"/>
-        <line num="77" type="stmt" count="4"/>
-        <line num="87" type="method" name="checkCell" visibility="private" complexity="9" crap="9.02" count="4"/>
-        <line num="89" type="stmt" count="4"/>
+        <line num="75" type="stmt" count="4"/>
+        <line num="78" type="stmt" count="4"/>
+        <line num="88" type="method" name="checkCell" visibility="private" complexity="7" crap="7" count="4"/>
         <line num="90" type="stmt" count="4"/>
         <line num="91" type="stmt" count="4"/>
         <line num="92" type="stmt" count="4"/>
-        <line num="93" type="stmt" count="4"/>
         <line num="94" type="stmt" count="4"/>
-        <line num="95" type="stmt" count="4"/>
         <line num="96" type="stmt" count="4"/>
+        <line num="97" type="stmt" count="4"/>
+        <line num="98" type="stmt" count="4"/>
         <line num="99" type="stmt" count="4"/>
-        <line num="100" type="stmt" count="4"/>
-        <line num="101" type="stmt" count="4"/>
-        <line num="102" type="stmt" count="4"/>
-        <line num="106" type="stmt" count="4"/>
+        <line num="103" type="stmt" count="4"/>
+        <line num="104" type="stmt" count="4"/>
         <line num="107" type="stmt" count="4"/>
-        <line num="109" type="stmt" count="4"/>
-        <line num="112" type="stmt" count="0"/>
-        <line num="123" type="method" name="getNeighborIndexes" visibility="private" complexity="13" crap="13" count="4"/>
+        <line num="118" type="method" name="getNeighborIndexes" visibility="private" complexity="13" crap="13" count="4"/>
+        <line num="121" type="stmt" count="4"/>
+        <line num="123" type="stmt" count="4"/>
+        <line num="124" type="stmt" count="4"/>
+        <line num="125" type="stmt" count="4"/>
         <line num="126" type="stmt" count="4"/>
+        <line num="127" type="stmt" count="4"/>
         <line num="128" type="stmt" count="4"/>
         <line num="129" type="stmt" count="4"/>
         <line num="130" type="stmt" count="4"/>
-        <line num="131" type="stmt" count="4"/>
         <line num="132" type="stmt" count="4"/>
-        <line num="133" type="stmt" count="4"/>
-        <line num="134" type="stmt" count="4"/>
-        <line num="135" type="stmt" count="4"/>
-        <line num="137" type="stmt" count="4"/>
-        <metrics loc="139" ncloc="94" classes="1" methods="6" coveredmethods="5" conditionals="0" coveredconditionals="0" statements="46" coveredstatements="45" elements="52" coveredelements="50"/>
+        <metrics loc="134" ncloc="89" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="43" coveredstatements="43" elements="49" coveredelements="49"/>
       </file>
       <file name="/Users/midorikocak/src/php-test-gol/src/World.php">
         <class name="World" namespace="MidoriKocak\GameOfLife" fullPackage="MidoriKocak" package="MidoriKocak">
@@ -227,6 +229,6 @@
         <metrics loc="104" ncloc="48" classes="1" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="13" elements="20" coveredelements="20"/>
       </file>
     </package>
-    <metrics files="4" loc="664" ncloc="419" classes="4" methods="28" coveredmethods="18" conditionals="0" coveredconditionals="0" statements="172" coveredstatements="147" elements="200" coveredelements="165"/>
+    <metrics files="4" loc="666" ncloc="421" classes="4" methods="28" coveredmethods="19" conditionals="0" coveredconditionals="0" statements="174" coveredstatements="149" elements="202" coveredelements="168"/>
   </project>
 </coverage>

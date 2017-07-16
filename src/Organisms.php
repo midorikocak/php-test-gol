@@ -88,14 +88,10 @@ class Organisms
     private function checkCell($i, $j)
     {
         $neighbors = $this->getNeighborCount($i, $j);
-        if ($this->cells[$i][$j] > 0) {
-            if ($neighbors[$this->cells[$i][$j]] == 2 || $neighbors[$this->cells[$i][$j]] == 3) {
-                return $this->cells[$i][$j];
-            } elseif ($neighbors[$this->cells[$i][$j]] < 2) {
-                return 0;
-            } elseif ($neighbors[$this->cells[$i][$j]] >= 4) {
-                return 0;
-            }
+        if ($this->cells[$i][$j] > 0 &&
+            ($neighbors[$this->cells[$i][$j]] == 2 || $neighbors[$this->cells[$i][$j]] == 3)
+        ) {
+            return $this->cells[$i][$j];
         } else {
             $speciesEqualToTree = [];
             foreach ($neighbors as $type => $count) {
@@ -106,8 +102,6 @@ class Organisms
 
             if (!empty($speciesEqualToTree)) {
                 return $speciesEqualToTree[rand(0, sizeof($speciesEqualToTree) - 1)];
-            } else {
-                return 0;
             }
         }
         return 0;

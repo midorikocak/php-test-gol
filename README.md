@@ -29,6 +29,12 @@ $ composer install
 
 ## Usage
 
+Using a file:
+
+``` bash
+$ php life.php -v -f data/glider_gun.xml
+```
+
 Getting help:
 ``` bash
 $ php life.php -h
@@ -60,12 +66,6 @@ Optional Arguments:
 Using a random array generated using size:
 ``` bash
 $ php life.php -r -s 40 -i 1024 -sp 1 -v
-```
-
-Using a file:
-
-``` bash
-$ php life.php -v -f data/glider_gun.xml
 ```
 
 ## Change log

@@ -1,8 +1,9 @@
 # game-of-life
 
-[![Software License][ico-license]](LICENSE.md)
 [![Build Status][ico-travis]][link-travis]
 [![Quality Score][ico-code-quality]][link-code-quality]
+[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
+[![Software License][ico-license]](LICENSE.md)
 
 Connway's game of life implementeation using PHP best practices
 

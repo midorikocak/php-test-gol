@@ -30,7 +30,7 @@ $ composer install
 
 Getting help:
 ``` bash
-$ php -h
+$ php life.php -h
 
 Connway's Game of Life by Midori Kocak
 

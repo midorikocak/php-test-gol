@@ -3,24 +3,6 @@
 require "vendor/autoload.php";
 use MidoriKocak\GameOfLife\GameOfLife;
 
-/**
- * $verbose = true;
- *
- * foreach ($argv as $parameter) {
- * if ($parameter == "-s" || $parameter == "--silent") {
- * $verbose = false;
- * }
- * if ($parameter == "-r" || $parameter == "--random") {
- * $randomArray = GameOfLife::createRandomMatrix($n, $m, $max);
- * GameOfLife::createXMLfromCells('data/random.xml', $randomArray, 2, 1024);
- * }
- * }
- **/
-
-//$gameOfLife = new GameOfLife('data/glider_gun_with_2_species.xml');
-//$gameOfLife->start($verbose);
-
-
 $climate = new League\CLImate\CLImate;
 
 $climate->arguments->add([
@@ -114,7 +96,7 @@ try {
         } else {
             $species = $climate->arguments->get('species');
         }
-        if ($exit == true) {
+        if ($exit === true) {
             $climate->usage();
             exit();
         }
@@ -132,6 +114,9 @@ try {
 
     if ($climate->arguments->defined('outputFilename')) {
         $outputFilename = $filename = $climate->arguments->get('outputFilename');
+        if (empty($outputFilename)) {
+            $outputFilename = "out.xml";
+        }
         $gameOfLife = new GameOfLife($filename, $outputFilename);
     } elseif ($climate->arguments->defined('filename')) {
         $gameOfLife = new GameOfLife($filename);

@@ -94,7 +94,8 @@ class Life
             "1;37"
         ];
 
-        for ($i = 0; $i < sizeof($matrix); $i++) {
+        $rows = sizeof($matrix);
+        for ($i = 0; $i < $rows; $i++) {
             $out = implode($matrix[$i]) . "\n";
             for ($k = 0; $k < strlen($out); $k++) {
                 if ($out[$k] > 0) {

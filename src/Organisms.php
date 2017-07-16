@@ -32,9 +32,10 @@ class Organisms
     public function iterate()
     {
         $next = $this->cells;
-
-        for ($i = 0; $i < sizeof($this->cells); $i++) {
-            for ($j = 0; $j < sizeof($this->cells[0]); $j++) {
+        $rows = sizeof($this->cells);
+        $columns = sizeof($this->cells[0]);
+        for ($i = 0; $i < $rows; $i++) {
+            for ($j = 0; $j < $columns; $j++) {
                 $next[$i][$j] = $this->checkCell($i, $j);
             }
         }

@@ -150,7 +150,7 @@ class GameOfLife
      */
     private function createWorld()
     {
-        if ($this->size == null || $this->species == null | $this->iterations == null) {
+        if ($this->size == null || $this->species == null || $this->iterations == null) {
             throw new \Exception('Not ready yet');
         }
 

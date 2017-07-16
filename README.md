@@ -6,14 +6,12 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
+Connway's game of life implementeation using PHP best practices
 
 ## Structure
 
-If any of the following are applicable to your project, then the directory structure should follow industry best practises by being named the following.
-
-```
-bin/        
-config/
+```     
+data/
 src/
 tests/
 vendor/
@@ -22,22 +20,50 @@ vendor/
 
 ## Install
 
-Via Composer
+Go to downloaded directory and use command
 
 ``` bash
-$ composer require midorikocak/game-of-life
+$ composer install
 ```
 
 ## Usage
 
+Getting help:
+``` bash
+$ php -h
+
+Connway's Game of Life by Midori Kocak
+
+Usage: life.php [-f filename, --filename filename] [-h, --help] [-i iterations, --iterations iterations] [-o outputFilename, --outputFilename outputFilename (default: out.xml)] [-r, --random] [-s size, --size size] [-sp species, --species species] [-v, --verbose]
+
+Optional Arguments:
+	-r, --random
+		Create Game of life from random matrix
+	-i iterations, --iterations iterations
+		Number of iterations
+	-s size, --size size
+		Square size of the world
+	-sp species, --species species
+		Amount of species
+	-f filename, --filename filename
+		File Name of XML input
+	-o outputFilename, --outputFilename outputFilename (default: out.xml)
+		File Name of XML output
+	-v, --verbose
+		Verbose output, shows GameOfLife in CLI
+	-h, --help
+		Prints a usage statement
+```
+
+
 Using a random array generated using size:
-``` sh
+``` bash
 $ php life.php -r -s 40 -i 1024 -sp 1 -v
 ```
 
 Using a file:
 
-``` sh
+``` bash
 $ php life.php -v -f data/glider_gun.xml
 ```
 
@@ -48,7 +74,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 ## Testing
 
 ``` bash
-$ composer test
+$ phpunit
 ```
 
 ## Contributing
@@ -68,16 +94,14 @@ If you discover any security related issues, please email midori@mynameismidori.
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/midorikocak/game-of-life.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/midorikocak/game-of-life/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/midorikocak/game-of-life.svg?style=flat-square
+[ico-travis]: https://img.shields.io/travis/midorikocak/php-test-gol/master.svg?style=flat-square
+[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/midorikocak/php-test-gol.svg?style=flat-square
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/midorikocak/game-of-life.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/midorikocak/game-of-life.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/midorikocak/game-of-life
-[link-travis]: https://travis-ci.org/midorikocak/game-of-life
-[link-scrutinizer]: https://scrutinizer-ci.com/g/midorikocak/game-of-life/code-structure
+[link-travis]: https://travis-ci.org/midorikocak/php-test-gol
+[link-scrutinizer]: https://scrutinizer-ci.com/g/midorikocak/php-test-gol/code-structure
 [link-code-quality]: https://scrutinizer-ci.com/g/midorikocak/game-of-life
 [link-downloads]: https://packagist.org/packages/midorikocak/game-of-life
 [link-author]: https://github.com/midorikocak

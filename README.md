@@ -6,6 +6,8 @@
 
 Connway's game of life implementeation using PHP best practices
 
+![Screenshot](screenshot.png)
+
 ## Structure
 
 ```     

@@ -118,10 +118,9 @@ try {
             $outputFilename = "out.xml";
         }
         $gameOfLife = new GameOfLife($filename, $outputFilename);
-    } elseif ($climate->arguments->defined('filename')) {
+    } elseif (isset($filename) || $climate->arguments->defined('filename')) {
         $gameOfLife = new GameOfLife($filename);
     }
-
     if (isset($gameOfLife)) {
         $gameOfLife->start($verbose);
     } else {

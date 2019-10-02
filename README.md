@@ -5,7 +5,7 @@
 [![Coverage Status][ico-scrutinizer]][link-scrutinizer]
 [![Software License][ico-license]](LICENSE.md)
 
-Connway's game of life implementeation using PHP best practices
+Connway's game of life implementeation using PHP some of best practices
 
 ![Screenshot](screenshot.png)
 

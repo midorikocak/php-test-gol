@@ -262,7 +262,7 @@ class GameOfLife
      * @param int $size
      * @return array
      */
-    public static function createSquareMatrixWithZeors(int $size)
+    public static function createSquareMatrixWithZeros(int $size)
     {
 
         $matrix = array_fill(0, $size, array_fill(0, $size, 0));
